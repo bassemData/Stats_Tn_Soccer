@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import urllib
+import urllib3
 import requests
 
    
@@ -12,8 +12,8 @@ basic_url = "https://www.les-sports.info/football-championnat-de-tunisie-clp-1-s
 def get_tab(ind) :
 
 
-    req = urllib.request.Request(basic_url, headers={'User-Agent': 'Mozilla/5.0'})
-    webpage = urllib.request.urlopen(req).read()
+    req = urllib3.request.Request(basic_url, headers={'User-Agent': 'Mozilla/5.0'})
+    webpage = urllib3.request.urlopen(req).read()
     df = pd.read_html(webpage, header=0) # Read HTML tables into a list of DataFrame objects.
     
     #print(len(df))
